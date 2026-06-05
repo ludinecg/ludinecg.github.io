@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Ludin Castillo — Data Engineer with 9 years in financial systems. SQL Server, Python, ETL pipelines, BI dashboards." />
+  <title>Ludin Castillo — Data Engineer</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy: #0f1c2e; --navy2: #162035; --blue: #2563eb; --blue-l: #3b82f6;
+      --red: #b91c1c; --gray1: #f8fafc; --gray2: #e2e8f0; --gray3: #94a3b8;
+      --gray4: #64748b; --text: #1e293b; --white: #ffffff;
+      --radius: 10px; --shadow: 0 2px 12px rgba(0,0,0,.08);
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size: 16px; line-height: 1.65; color: var(--text); background: var(--white); }
+    nav { position: sticky; top: 0; z-index: 100; background: var(--navy); display: flex; justify-content: space-between; align-items: center; padding: 0 5%; height: 56px; }
+    nav .brand { color: var(--white); font-weight: 700; font-size: 1rem; letter-spacing: .02em; text-decoration: none; }
+    nav ul { list-style: none; display: flex; gap: 28px; }
+    nav ul a { color: var(--gray3); text-decoration: none; font-size: .9rem; transition: color .2s; }
+    nav ul a:hover { color: var(--white); }
+    #hero { background: var(--navy); color: var(--white); padding: 96px 5% 80px; }
+    .hero-inner { max-width: 760px; }
+    .hero-label { font-size: .8rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--blue-l); margin-bottom: 16px; }
+    #hero h1 { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 800; line-height: 1.15; margin-bottom: 20px; }
+    #hero h1 span { color: var(--blue-l); }
+    #hero p { font-size: 1.1rem; color: #cbd5e1; max-width: 620px; margin-bottom: 36px; }
+    .hero-links { display: flex; flex-wrap: wrap; gap: 12px; }
+    .btn { display: inline-flex; align-items: center; gap: 7px; padding: 10px 22px; border-radius: 6px; font-size: .9rem; font-weight: 600; text-decoration: none; transition: opacity .2s, transform .15s; }
+    .btn:hover { opacity: .88; transform: translateY(-1px); }
+    .btn-primary { background: var(--blue); color: var(--white); }
+    .btn-outline { background: transparent; color: var(--white); border: 1.5px solid #475569; }
+    .btn-outline:hover { border-color: var(--white); }
+    section { padding: 80px 5%; }
+    section:nth-child(even) { background: var(--gray1); }
+    .section-label { font-size: .75rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--blue); margin-bottom: 8px; }
+    .section-title { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 800; color: var(--navy); margin-bottom: 12px; }
+    .section-sub { font-size: 1rem; color: var(--gray4); max-width: 580px; margin-bottom: 48px; }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; max-width: 900px; }
+    .about-grid p { color: var(--gray4); line-height: 1.75; margin-bottom: 16px; }
+    .about-stats { display: flex; flex-direction: column; gap: 24px; }
+    .stat-card { background: var(--white); border: 1px solid var(--gray2); border-radius: var(--radius); padding: 20px 24px; }
+    .stat-num { font-size: 2rem; font-weight: 800; color: var(--blue); line-height: 1; margin-bottom: 4px; }
+    .stat-label { font-size: .85rem; color: var(--gray4); }
+    .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; }
+    .project-card { background: var(--white); border: 1px solid var(--gray2); border-radius: var(--radius); padding: 28px; box-shadow: var(--shadow); display: flex; flex-direction: column; transition: box-shadow .2s, transform .2s; }
+    .project-card:hover { box-shadow: 0 8px 28px rgba(0,0,0,.12); transform: translateY(-3px); }
+    .project-num { font-size: .75rem; font-weight: 700; letter-spacing: .1em; color: var(--blue-l); text-transform: uppercase; margin-bottom: 12px; }
+    .project-card h3 { font-size: 1.1rem; font-weight: 700; color: var(--navy); margin-bottom: 10px; }
+    .project-card p { font-size: .9rem; color: var(--gray4); line-height: 1.7; flex: 1; margin-bottom: 20px; }
+    .tag-row { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 20px; }
+    .tag { font-size: .72rem; font-weight: 600; padding: 3px 10px; border-radius: 20px; background: #eff6ff; color: var(--blue); border: 1px solid #bfdbfe; }
+    .tag.red { background: #fef2f2; color: var(--red); border-color: #fecaca; }
+    .tag.green { background: #f0fdf4; color: #15803d; border-color: #bbf7d0; }
+    .tag.gray { background: #f8fafc; color: var(--gray4); border-color: var(--gray2); }
+    .project-link { font-size: .85rem; font-weight: 600; color: var(--blue); text-decoration: none; display: inline-flex; align-items: center; gap: 5px; transition: gap .15s; }
+    .project-link:hover { gap: 9px; }
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; }
+    .skill-group { background: var(--white); border: 1px solid var(--gray2); border-radius: var(--radius); padding: 20px; }
+    .skill-group h4 { font-size: .75rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--blue); margin-bottom: 12px; }
+    .skill-group ul { list-style: none; }
+    .skill-group ul li { font-size: .88rem; color: var(--gray4); padding: 3px 0; }
+    .skill-group ul li::before { content: "-- "; color: var(--gray2); }
+    #contact { background: var(--navy); color: var(--white); text-align: center; }
+    #contact .section-label { color: var(--blue-l); }
+    #contact .section-title { color: var(--white); }
+    #contact .section-sub { color: #94a3b8; margin-left: auto; margin-right: auto; }
+    .contact-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; }
+    footer { background: #0a1423; color: #475569; text-align: center; padding: 20px 5%; font-size: .82rem; }
+    @media (max-width: 640px) {
+      nav ul { gap: 16px; }
+      .about-grid { grid-template-columns: 1fr; }
+      .hero-links { flex-direction: column; }
+      .btn { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="brand" href="#hero">LC</a>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<section id="hero">
+  <div class="hero-inner">
+    <p class="hero-label">Data Engineer &mdash; Guatemala City (GMT-6)</p>
+    <h1>Ludin <span>Castillo</span></h1>
+    <p>Nine years moving data through financial systems &mdash; SQL Server, stored procedures, ETL pipelines, BI dashboards. Now expanding into Python, AWS, and AI quality evaluation. Available for remote Data Engineer / Analytics Engineer roles.</p>
+    <div class="hero-links">
+      <a class="btn btn-primary" href="#projects">View projects</a>
+      <a class="btn btn-outline" href="https://github.com/ludinecg" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn btn-outline" href="https://www.linkedin.com/in/ludin-castillo-447b943a6/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn btn-outline" href="mailto:ludinecg@gmail.com">Email</a>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <p class="section-label">Background</p>
+  <h2 class="section-title">About me</h2>
+  <div class="about-grid">
+    <div>
+      <p>Most of my career was spent inside the SQL Server stack of a Guatemalan bank &mdash; designing tables, breaking down stored procedures, debugging the kind of data integrity issues that only surface after a report has already reached a VP. I care about correctness more than novelty.</p>
+      <p>These days I am pushing my stack further into Python data engineering (Pandas, Flask, pipeline orchestration) and AI quality evaluation. Every project in this portfolio uses the same techniques I applied in production &mdash; on synthetic data, fully reproducible, no proprietary systems required.</p>
+      <p>Spanish is my native language. English at B2, improving at university. Comfortable working async with teams across the Americas and Europe.</p>
+    </div>
+    <div class="about-stats">
+      <div class="stat-card">
+        <div class="stat-num">9</div>
+        <div class="stat-label">Years in financial data systems</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">4</div>
+        <div class="stat-label">Portfolio projects, all open source</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">1M+</div>
+        <div class="stat-label">Rows in benchmark datasets</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <p class="section-label">Portfolio</p>
+  <h2 class="section-title">Projects</h2>
+  <p class="section-sub">Four end-to-end projects covering SQL optimization, REST APIs, BI dashboards, and AI evaluation.</p>
+  <div class="projects-grid">
+
+    <div class="project-card">
+      <p class="project-num">Project 01</p>
+      <h3>financial-sql-optimization</h3>
+      <p>Full SQL tuning cycle on a 1M-row financial dataset. Logical reads cut by 75-99% on three of four benchmark queries using covering indexes, filtered indexes, statistics rebuilds, and SARGable rewrites.</p>
+      <div class="tag-row">
+        <span class="tag red">SQL Server 2022</span>
+        <span class="tag gray">T-SQL</span>
+        <span class="tag">Python</span>
+        <span class="tag gray">Docker</span>
+      </div>
+      <a class="project-link" href="https://github.com/ludinecg/financial-sql-optimization" target="_blank" rel="noopener">View on GitHub &rarr;</a>
+    </div>
+
+    <div class="project-card">
+      <p class="project-num">Project 02</p>
+      <h3>data-validation-api</h3>
+      <p>REST API for financial transaction validation. Detects fraud patterns, validates data types and business rules, and returns structured error responses. Designed to plug into upstream data pipelines. Live on Render.</p>
+      <div class="tag-row">
+        <span class="tag">Python</span>
+        <span class="tag gray">Flask</span>
+        <span class="tag gray">Docker</span>
+        <span class="tag green">Live on Render</span>
+      </div>
+      <a class="project-link" href="https://github.com/ludinecg/data-validation-api" target="_blank" rel="noopener">View on GitHub &rarr;</a>
+    </div>
+
+    <div class="project-card">
+      <p class="project-num">Project 03</p>
+      <h3>financial-analytics-dashboard</h3>
+      <p>Python pipeline that exports from SQL Server, aggregates into Tableau-ready CSVs, and feeds a Tableau Public dashboard with KPI cards, monthly trends, and channel-mix analysis on the same 1M-row dataset.</p>
+      <div class="tag-row">
+        <span class="tag">Python</span>
+        <span class="tag">Pandas</span>
+        <span class="tag red">SQL Server</span>
+        <span class="tag gray">Tableau Public</span>
+      </div>
+      <a class="project-link" href="https://github.com/ludinecg/financial-analytics-dashboard" target="_blank" rel="noopener">View on GitHub &rarr;</a>
+    </div>
+
+    <div class="project-card">
+      <p class="project-num">Project 04</p>
+      <h3>ai-quality-evaluator</h3>
+      <p>Rule-based framework that scores LLM responses on accuracy, completeness, clarity, and hallucination risk. Evaluates 20 data engineering Q&amp;A pairs. No external API or dependencies &mdash; standard library only.</p>
+      <div class="tag-row">
+        <span class="tag">Python</span>
+        <span class="tag gray">NLP heuristics</span>
+        <span class="tag gray">No dependencies</span>
+      </div>
+      <a class="project-link" href="https://github.com/ludinecg/ai-quality-evaluator" target="_blank" rel="noopener">View on GitHub &rarr;</a>
+    </div>
+
+  </div>
+</section>
+
+<section id="skills">
+  <p class="section-label">Tech</p>
+  <h2 class="section-title">Skills</h2>
+  <p class="section-sub">What I work with day to day and what I am building toward.</p>
+  <div class="skills-grid">
+    <div class="skill-group">
+      <h4>Databases</h4>
+      <ul>
+        <li>SQL Server 2016-2022</li>
+        <li>T-SQL / stored procedures</li>
+        <li>Index strategy</li>
+        <li>Query plan analysis</li>
+        <li>PostgreSQL (learning)</li>
+      </ul>
+    </div>
+    <div class="skill-group">
+      <h4>Python</h4>
+      <ul>
+        <li>Pandas / NumPy</li>
+        <li>Flask REST APIs</li>
+        <li>Data pipelines</li>
+        <li>Faker (test data)</li>
+        <li>Standard library</li>
+      </ul>
+    </div>
+    <div class="skill-group">
+      <h4>BI &amp; Visualization</h4>
+      <ul>
+        <li>Tableau Desktop / Public</li>
+        <li>Power BI</li>
+        <li>SSRS</li>
+        <li>Dashboard design</li>
+        <li>KPI frameworks</li>
+      </ul>
+    </div>
+    <div class="skill-group">
+      <h4>Infrastructure</h4>
+      <ul>
+        <li>Docker</li>
+        <li>Git / GitHub</li>
+        <li>Render (PaaS)</li>
+        <li>AWS (learning)</li>
+        <li>Linux CLI</li>
+      </ul>
+    </div>
+    <div class="skill-group">
+      <h4>Data Engineering</h4>
+      <ul>
+        <li>ETL / ELT design</li>
+        <li>Data quality checks</li>
+        <li>Schema design (3NF, star)</li>
+        <li>Incremental loads</li>
+        <li>dbt (learning)</li>
+      </ul>
+    </div>
+    <div class="skill-group">
+      <h4>AI / ML</h4>
+      <ul>
+        <li>LLM response evaluation</li>
+        <li>Heuristic scoring</li>
+        <li>Hallucination detection</li>
+        <li>AWS AI Practitioner (Q3 2026)</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <p class="section-label">Get in touch</p>
+  <h2 class="section-title">Contact</h2>
+  <p class="section-sub">Open to remote Data Engineer, Analytics Engineer, and BI roles &mdash; full-time, contract, or freelance. GMT-6, available across Americas and European time zones.</p>
+  <div class="contact-links">
+    <a class="btn btn-primary" href="mailto:ludinecg@gmail.com">ludinecg@gmail.com</a>
+    <a class="btn btn-outline" href="https://www.linkedin.com/in/ludin-castillo-447b943a6/" target="_blank" rel="noopener">LinkedIn</a>
+    <a class="btn btn-outline" href="https://github.com/ludinecg" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</section>
+
+<footer>
+  &copy; 2025 Ludin Castillo &mdash; Guatemala City
+</footer>
+
+</body>
+</html>
